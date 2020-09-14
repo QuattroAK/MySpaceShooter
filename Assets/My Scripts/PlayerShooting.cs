@@ -9,6 +9,7 @@ public class PlayerShooting : MonoBehaviour
     [Header("Shooting parametres")]
     [SerializeField] private float nextFire;
     [SerializeField] private float fireRate;
+    [SerializeField] private float baseDamage;
 
     public void Init()
     {

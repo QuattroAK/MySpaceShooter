@@ -12,7 +12,7 @@ public class BulletsController : MonoBehaviour
     private List<BulletController> activePoolShots;
     private Stack<BulletController> diactivePoolShots;
 
-    public void Init()
+    public void Init(float baseDamage)
     {
         activePoolShots = new List<BulletController>();
         diactivePoolShots = new Stack<BulletController>();
@@ -20,7 +20,7 @@ public class BulletsController : MonoBehaviour
         for (int i = 0; i < countPoolObjects; i++)
         {
             var bulletObject = Instantiate(shotPrefab, shotSpawn[0]);
-            bulletObject.Init(tagDamagedObject);
+            bulletObject.Init(tagDamagedObject, baseDamage);
             bulletObject.OnDisabled += BulletDisableHandler;
             diactivePoolShots.Push(bulletObject);
         }

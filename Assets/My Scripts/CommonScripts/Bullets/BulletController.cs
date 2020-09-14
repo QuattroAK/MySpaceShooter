@@ -9,10 +9,12 @@ public class BulletController : MonoBehaviour
     [SerializeField] private float speed;
 
     private string tagDamagedObject;
+    private float damage;
 
-    public void Init(string tagDamagedObject)
+    public void Init(string tagDamagedObject, float baseDamage)
     {
         this.tagDamagedObject = tagDamagedObject;
+        damage = baseDamage;
     }
 
     public void StartToMove(Transform spawnTransform)
@@ -47,6 +49,9 @@ public class BulletController : MonoBehaviour
         if (other.gameObject.CompareTag(tagDamagedObject))
         {
             Disable();
+            var healthComponent = other.GetComponent<ObjectHealth>();
+            healthComponent.TakeDamage(damage);
+
             // TODO Add damage player (in future add abstact class)
             // TODO Add some VFX (additional)
         }
