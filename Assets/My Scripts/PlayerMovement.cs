@@ -2,14 +2,16 @@
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Components links")]
     [SerializeField] private Rigidbody playerRigidbody;
+
+    [Header("Movement parametres")]
     [SerializeField] private float speed;
     [SerializeField] private float tilt;
     [SerializeField] private float xMinPos;
     [SerializeField] private float xMaxPos;
     [SerializeField] private float zMinPos;
     [SerializeField] private float zMaxPos;
-    
 
     private Vector3 playerMovement;
 
@@ -35,7 +37,4 @@ public class PlayerMovement : MonoBehaviour
         playerRigidbody.position = new Vector3(Mathf.Clamp(playerRigidbody.position.x, xMinPos, xMaxPos), 0.0f, Mathf.Clamp(playerRigidbody.position.z, zMinPos, zMaxPos));
         playerRigidbody.rotation = Quaternion.Euler(0.0f, 0.0f, playerRigidbody.velocity.x * -tilt);
     }
-
-    
-
 }

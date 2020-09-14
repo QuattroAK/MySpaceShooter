@@ -1,25 +1,24 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(BulletsController))]
 public class PlayerShooting : MonoBehaviour
 {
+    [Header("Components links")]
+    [SerializeField] private BulletsController bulletsController;
+
+    [Header("Shooting parametres")]
     [SerializeField] private float nextFire;
     [SerializeField] private float fireRate;
-    [SerializeField] private GameObject shot;
-    [SerializeField] private List<GameObject> poolShots;
-    [SerializeField] private Transform shotSpawn;
-    [SerializeField] private int countPool;
-    [SerializeField] private float zBoundary;
 
     public void Init()
     {
-        CreatePoolShots();
+        bulletsController.Init();
     }
 
     public void Refresh()
     {
         Fire();
-        //ReturnToPool();
+        bulletsController.RefreshBullets();
     }
 
     private void Fire()
@@ -28,56 +27,7 @@ public class PlayerShooting : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             SoundController.Instance.PlayAudio(TypeAudio.GunShot);
-            GameObject retrivedShot = GetObjectInPool();
-
-            if(retrivedShot != null)
-            {
-                retrivedShot.gameObject.SetActive(true);
-            }
-
-            if(retrivedShot.transform.position.z > zBoundary)
-            {
-                retrivedShot.gameObject.SetActive(false);
-            }
+            bulletsController.SpawnBullet();
         }
     }
-
-    public void CreatePoolShots()
-    {
-        poolShots = new List<GameObject>();
-
-        for (int i = 0; i < countPool; i++)
-        {
-            GameObject objectShot = Instantiate(shot, shotSpawn.transform.position, Quaternion.identity, shotSpawn);
-            objectShot.gameObject.SetActive(false);
-            poolShots.Add(objectShot);
-        }
-    }
-
-    public GameObject GetObjectInPool()
-    {
-        for (int i = 0; i < poolShots.Count; i++)
-        {
-            if(!poolShots[i].activeInHierarchy)
-            {
-                return poolShots[i];
-            }
-        }
-
-        GameObject objectShot = Instantiate(shot, shotSpawn.transform.position, Quaternion.identity, shotSpawn);
-        objectShot.gameObject.SetActive(false);
-        poolShots.Add(objectShot);
-        return objectShot; 
-    }
-
-    //public void ReturnToPool()
-    //{
-    //    if(retrivedShotPref != null)
-    //    {
-    //        if (retrivedShotPref.transform.position.z > zBoundary)
-    //        {
-    //            retrivedShotPref.SetActive(false);
-    //        }
-    //    }
-    //}
 }
