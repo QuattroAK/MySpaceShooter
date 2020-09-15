@@ -13,7 +13,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void Init()
     {
-        bulletsController.Init();
+        bulletsController.Init(baseDamage);
     }
 
     public void Refresh()
@@ -29,6 +29,8 @@ public class PlayerShooting : MonoBehaviour
             nextFire = Time.time + fireRate;
             SoundController.Instance.PlayAudio(TypeAudio.GunShot);
             bulletsController.SpawnBullet();
+
+            PlayerData.PlayerStatisticData.CountPlayerShoots++;
         }
     }
 }
