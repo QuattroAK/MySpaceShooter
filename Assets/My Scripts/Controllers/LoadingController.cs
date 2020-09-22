@@ -7,6 +7,7 @@ public class LoadingController : MonoBehaviour
 {
     [Header("Загружаемая сцена")]
     [SerializeField] private int sceneNumber;
+
     [Header("Остальные объекты")]
     [SerializeField] Image imageLoading;
     [SerializeField] Text textLoadPercent;
@@ -17,7 +18,7 @@ public class LoadingController : MonoBehaviour
         StartCoroutine(AsyncLoad());
     }
 
-    IEnumerator AsyncLoad()
+    private IEnumerator AsyncLoad()
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneNumber);
 

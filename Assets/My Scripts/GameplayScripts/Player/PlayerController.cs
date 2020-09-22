@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public void Init()
     {
         playerShooting.Init();
+        playerHealth.Init();
     }
 
     public void Refresh()

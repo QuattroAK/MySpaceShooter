@@ -3,6 +3,8 @@
 public abstract class ObjectHealth : MonoBehaviour
 {
     [SerializeField] private int startingHealth = 100;
+    [SerializeField] private TypeAudio takeDamageAudio;
+    [SerializeField] private TypeAudio deathAudio;
 
     private bool isDead;
     private float currentHealth;
@@ -43,15 +45,15 @@ public abstract class ObjectHealth : MonoBehaviour
 
     #endregion
 
-    public void Init()
+    protected virtual void InitObjectHealth()
     {
         currentHealth = startingHealth;
     }
 
-    public void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        //SoundController.Instance.PlayAudio(TypeAudio.);
+        SoundController.Instance.PlayAudio(takeDamageAudio);
 
         if (currentHealth <= 0 && !isDead)
         {
@@ -59,11 +61,9 @@ public abstract class ObjectHealth : MonoBehaviour
         }
     }
 
-    private void Death()
+    protected virtual void Death()
     {
         isDead = true;
-        //playerShooting.DisableEffects();
-        //SoundController.Instance.PlayAudio(TypeAudio.PlayerDeath);
-        //OnGameOver?.Invoke();
+        SoundController.Instance.PlayAudio(deathAudio);
     }
 }

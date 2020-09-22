@@ -57,12 +57,12 @@ public class SaveManager
         if (PlayerPrefs.HasKey(savesKey))
         {
             string jsonSaves = PlayerPrefs.GetString(savesKey);
-            var saveData = JsonUtility.FromJson<SaveData>(jsonSaves);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(jsonSaves);
             return saveData;
         }
         else
         {
-            var saveData = new SaveData();
+            SaveData saveData = new SaveData();
             return saveData;
         }
     }
