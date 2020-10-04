@@ -13,11 +13,11 @@ public class EnemyMovement : MonoBehaviour
         this.playerTarget = playerTarget;
     }
 
+    // TODO Изменить логику ИИ
     public void Refresh()
     {
         Vector3 lookDirection = (playerTarget.position - transform.position).normalized;
         rb.AddForce(lookDirection * speed);
         transform.rotation = Quaternion.LookRotation(lookDirection);
     }
-
 }

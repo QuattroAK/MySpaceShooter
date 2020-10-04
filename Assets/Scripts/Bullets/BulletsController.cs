@@ -35,7 +35,7 @@ public class BulletsController : MonoBehaviour
         }
     }
 
-    public void RefreshBullets() // TODO исправить уничтожение снаряда
+    public void RefreshBullets() // TODO исправить уничтожение снаряда за определенный промежуток времени
     {
         //for (int i = 0; i < activePoolShots.Count; i++)
         //{
