@@ -207,6 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc6dcaff873a5c469e32b36d8689b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 100
+  takeDamageAudio: 3
+  deathAudio: 3
 --- !u!114 &3317742048256856245
 MonoBehaviour:
   m_ObjectHideFlags: 0

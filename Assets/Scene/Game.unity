@@ -160,6 +160,8 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: eb29844b03df258489a10c01c6e51552, type: 3}
   - TypeAudio: 3
     AudioClip: {fileID: 8300000, guid: eb29844b03df258489a10c01c6e51552, type: 3}
+  - TypeAudio: 3
+    AudioClip: {fileID: 8300000, guid: 9fc03a91b5216b74394a6166059d68f2, type: 3}
 --- !u!4 &190306278
 Transform:
   m_ObjectHideFlags: 0
@@ -413,6 +415,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2124209426, guid: 81a9a74ae640de24180d5a33ddf324b1, type: 3}
+      propertyPath: deathAudio
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2124209427, guid: 81a9a74ae640de24180d5a33ddf324b1, type: 3}
       propertyPath: baseDamage
       value: 30

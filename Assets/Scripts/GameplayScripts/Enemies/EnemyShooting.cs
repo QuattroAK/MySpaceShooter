@@ -32,4 +32,8 @@ public class EnemyShooting : MonoBehaviour
             bulletsController.SpawnBullet();
         }
     }
+    public void DisableEffects()
+    {
+        stopFire = true;
+    }
 }

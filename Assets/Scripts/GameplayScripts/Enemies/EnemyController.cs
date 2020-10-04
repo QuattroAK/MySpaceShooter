@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     public void Init(PlayerController playerController, Action<int> OnEnemyDie)
     {
         enemyMovement.Init(playerController.transform);
-        enemyHealth.Init();
+        enemyHealth.Init(enemyShooting);
         enemyShooting.Init();
     }
 
