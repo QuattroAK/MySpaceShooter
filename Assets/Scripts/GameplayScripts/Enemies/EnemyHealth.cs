@@ -2,7 +2,7 @@
 
 public class EnemyHealth : ObjectHealth
 {
-   public void Init()
+    public void Init()
     {
         base.InitObjectHealth();
     }

@@ -23,9 +23,10 @@ public class EnemyShooting : MonoBehaviour
         bulletsController.RefreshBullets();
     }
 
+    // TODO Скорее всего придется переделать логику стрельбы, чтобы было более реалистично. Например стрелять в игрока тогда, когда враг направлен на него лицом
     private void Attack()
     {
-        if(Time.time > nextFire && !stopFire)
+        if (Time.time > nextFire && !stopFire)
         {
             nextFire = Time.time + fireRate;
             SoundController.Instance.PlayAudio(TypeAudio.EnemyGunShot);
