@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletsController : MonoBehaviour
@@ -11,33 +10,20 @@ public class BulletsController : MonoBehaviour
     [SerializeField] private string tagDamagedObject;
     [SerializeField] private float deactivationTime;
 
-    private float timeLife;
     private List<BulletController> activePoolShots;
     private Stack<BulletController> diactivePoolShots;
 
     public void Init(float baseDamage)
     {
-        
         activePoolShots = new List<BulletController>();
         diactivePoolShots = new Stack<BulletController>();
 
         for (int i = 0; i < countPoolObjects; i++)
         {
             var bulletObject = Instantiate(shotPrefab, shotSpawn[0]);
-            bulletObject.Init(tagDamagedObject, baseDamage);
+            bulletObject.Init(tagDamagedObject, baseDamage, deactivationTime);
             bulletObject.OnDisabled += BulletDisableHandler;
             diactivePoolShots.Push(bulletObject);
-        }
-
-        StartCoroutine(Timer());
-    }
-    IEnumerator Timer()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            timeLife++;
-            Debug.Log(timeLife);
         }
     }
 
@@ -50,11 +36,11 @@ public class BulletsController : MonoBehaviour
         }
     }
 
-    public void RefreshBullets() // TODO исправить уничтожение снаряда за определенный промежуток времени
+    public void RefreshBullets()
     {
         for (int i = 0; i < activePoolShots.Count; i++)
         {
-            activePoolShots[i].LifeCheck(timeLife, deactivationTime);
+            activePoolShots[i].CheckLifetime();
         }
     }
 

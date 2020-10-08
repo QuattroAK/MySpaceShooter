@@ -5,17 +5,18 @@ public class PlayerShooting : MonoBehaviour
 {
     [Header("Components links")]
     [SerializeField] private BulletsController bulletsController;
-    [SerializeField] private Transform parentBulletObject;
 
     [Header("Shooting parametres")]
     [SerializeField] private float nextFire;
     [SerializeField] private float fireRate;
     [SerializeField] private float baseDamage;
 
+    private Transform parentBulletObject;
     private bool stopFire;
 
-    public void Init()
+    public void Init(Transform parentBulletObject)
     {
+        this.parentBulletObject = parentBulletObject;
         bulletsController.Init(baseDamage);
     }
 

@@ -2,17 +2,21 @@
 
 public class GameController : MonoBehaviour
 {
+    [Header("Controllers")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private SoundController soundController;
     [SerializeField] private UIController uIController;
-    [SerializeField] private EnemiesManager enemiesManager; 
+    [SerializeField] private EnemiesManager enemiesManager;
+
+    [Header("Game links")]
+    [SerializeField] private Transform playerParentBulletObject;
 
     private float saveTimer;
     private float saveTime = 3f;
 
     private void Start()
     {
-        playerController.Init();
+        playerController.Init(playerParentBulletObject);
         soundController.Init();
         uIController.Init(playerController);
         enemiesManager.Init(playerController);

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections;
 
 public class BulletController : MonoBehaviour
 {
@@ -11,33 +10,36 @@ public class BulletController : MonoBehaviour
 
     private string tagDamagedObject;
     private float damage;
+    private float deactivationTime;
+    private float localTime;
 
-    public void Init(string tagDamagedObject, float baseDamage)
+    public void Init(string tagDamagedObject, float baseDamage, float deactivationTime)
     {
         this.tagDamagedObject = tagDamagedObject;
         damage = baseDamage;
+        this.deactivationTime = deactivationTime;
     }
 
     public void StartToMove(Transform spawnTransform, Transform parentObject)
     {
+        localTime = 0;
+
         transform.parent = parentObject;
         transform.position = spawnTransform.position;
         transform.rotation = spawnTransform.rotation;
 
         rb.velocity = transform.forward * speed;
-
         gameObject.SetActive(true);
     }
 
-    public float LifeCheck(float timeLife, float deactivationTime)
+    public void CheckLifetime()
     {
-        if (timeLife > deactivationTime)
+        localTime += Time.deltaTime;
+
+        if (localTime >= deactivationTime)
         {
             Disable();
-            timeLife = 0;
-            return timeLife;
         }
-        
     }
 
     private void Disable()

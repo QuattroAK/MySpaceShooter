@@ -393,6 +393,7 @@ MonoBehaviour:
   soundController: {fileID: 190306277}
   uIController: {fileID: 1469193899}
   enemiesManager: {fileID: 1790001959}
+  playerParentBulletObject: {fileID: 327974615}
 --- !u!4 &547050641
 Transform:
   m_ObjectHideFlags: 0

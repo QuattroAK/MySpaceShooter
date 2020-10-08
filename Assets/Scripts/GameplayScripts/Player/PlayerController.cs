@@ -46,10 +46,10 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    public void Init()
+    public void Init(Transform parentBulletObject)
     {
         playerMovement.Init();
-        playerShooting.Init();
+        playerShooting.Init(parentBulletObject);
         playerHealth.Init(playerShooting, OnDamageHandler, OnGameOverHandler);
     }
 
