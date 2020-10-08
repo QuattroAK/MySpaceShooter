@@ -4,7 +4,7 @@ public class EnemyHealth : ObjectHealth
 {
     private EnemyShooting enemyShooting;
 
-   public void Init(EnemyShooting enemyShooting)
+    public void Init(EnemyShooting enemyShooting)
     {
         this.enemyShooting = enemyShooting;
         base.InitObjectHealth();
