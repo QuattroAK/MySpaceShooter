@@ -5,6 +5,7 @@ public class PlayerShooting : MonoBehaviour
 {
     [Header("Components links")]
     [SerializeField] private BulletsController bulletsController;
+    [SerializeField] private Transform parentBulletObject;
 
     [Header("Shooting parametres")]
     [SerializeField] private float nextFire;
@@ -30,7 +31,7 @@ public class PlayerShooting : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             SoundController.Instance.PlayAudio(TypeAudio.PlayerGunShot);
-            bulletsController.SpawnBullet();
+            bulletsController.SpawnBullet(parentBulletObject);
 
             PlayerData.PlayerStatisticData.CountPlayerShoots++;
         }

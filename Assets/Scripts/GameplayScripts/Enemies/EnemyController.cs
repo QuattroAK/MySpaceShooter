@@ -7,11 +7,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyHealth enemyHealth;
     [SerializeField] private EnemyShooting enemyShooting;
 
-    public void Init(PlayerController playerController, Action<int> OnEnemyDie)
+    public void Init(PlayerController playerController, Action<int> OnEnemyDie, Transform parentBullet)
     {
         enemyMovement.Init(playerController.transform);
         enemyHealth.Init(enemyShooting);
-        enemyShooting.Init();
+        enemyShooting.Init(parentBullet);
     }
 
     public void Refresh()

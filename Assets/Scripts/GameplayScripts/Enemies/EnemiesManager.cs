@@ -8,6 +8,7 @@ public class EnemiesManager : MonoBehaviour
     public event Action<int> OnEnemyDie;
 
     [SerializeField] private Transform transformEnemiesParent;
+    [SerializeField] private Transform parentBulletsEnemy;
     [SerializeField] private List<EnemyInfo> enemyInfo;
     [SerializeField] private int EnemyCount;
     [SerializeField] private float startSpawnTime;
@@ -48,7 +49,7 @@ public class EnemiesManager : MonoBehaviour
             {
                 EnemyController enemyController = Instantiate(enemyInfo[i].enemyPrefab, enemyInfo[i].spawnPoint.position, enemyInfo[i].enemyPrefab.transform.rotation, transformEnemiesParent);
                 enemyController.gameObject.SetActive(false);
-                enemyController.Init(playerController, OnEnemyDieHandler);
+                enemyController.Init(playerController, OnEnemyDieHandler, parentBulletsEnemy);
                 enemyByType.enemyControllers.Add(enemyController);
             }
             enemyByTypes.Add(enemyByType);
@@ -72,7 +73,7 @@ public class EnemiesManager : MonoBehaviour
 
             EnemyController enemyController = Instantiate(enemyInfo[i].enemyPrefab, enemyInfo[i].spawnPoint.position, enemyInfo[i].enemyPrefab.transform.rotation, transformEnemiesParent);
             enemyController.gameObject.SetActive(false);
-            enemyController.Init(playerController, OnEnemyDieHandler);
+            enemyController.Init(playerController, OnEnemyDieHandler, parentBulletsEnemy);
             enemyByTypes[i].enemyControllers.Add(enemyController);
             return enemyController;
         }

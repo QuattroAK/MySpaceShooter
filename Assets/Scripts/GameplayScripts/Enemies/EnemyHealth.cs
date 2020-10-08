@@ -4,11 +4,11 @@ public class EnemyHealth : ObjectHealth
 {
     private EnemyShooting enemyShooting;
 
-    public void Init(EnemyShooting enemyShooting)
-    {
+   public void Init(EnemyShooting enemyShooting)
+   {
         this.enemyShooting = enemyShooting;
         base.InitObjectHealth();
-    }
+   }
 
     public void Refresh()
     {
@@ -24,6 +24,5 @@ public class EnemyHealth : ObjectHealth
     public override void TakeDamage(float amount)
     {
         base.TakeDamage(amount);
-        
     }
 }

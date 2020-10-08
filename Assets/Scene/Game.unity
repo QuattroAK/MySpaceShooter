@@ -157,10 +157,12 @@ MonoBehaviour:
   - TypeAudio: 1
     AudioClip: {fileID: 8300000, guid: d577dee010cff7a489dfc0704d87e1f9, type: 3}
   - TypeAudio: 2
-    AudioClip: {fileID: 8300000, guid: eb29844b03df258489a10c01c6e51552, type: 3}
+    AudioClip: {fileID: 8300000, guid: 400103b7f37856a4181c743f0a022ab0, type: 3}
   - TypeAudio: 3
-    AudioClip: {fileID: 8300000, guid: eb29844b03df258489a10c01c6e51552, type: 3}
-  - TypeAudio: 3
+    AudioClip: {fileID: 8300000, guid: d8d697ad125e1cf498ff8ee4fbec4c4b, type: 3}
+  - TypeAudio: 4
+    AudioClip: {fileID: 8300000, guid: fc698d421757cc14da009baa5d46a970, type: 3}
+  - TypeAudio: 5
     AudioClip: {fileID: 8300000, guid: 9fc03a91b5216b74394a6166059d68f2, type: 3}
 --- !u!4 &190306278
 Transform:
@@ -298,6 +300,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &327974614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327974615}
+  m_Layer: 0
+  m_Name: ParentBulletsPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &327974615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327974614}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &468531862
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,9 +451,32 @@ PrefabInstance:
       propertyPath: deathAudio
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2124209426, guid: 81a9a74ae640de24180d5a33ddf324b1, type: 3}
+      propertyPath: takeDamageAudio
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2124209427, guid: 81a9a74ae640de24180d5a33ddf324b1, type: 3}
       propertyPath: baseDamage
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124209427, guid: 81a9a74ae640de24180d5a33ddf324b1, type: 3}
+      propertyPath: parentBulletObject
+      value: 
+      objectReference: {fileID: 327974615}
+    - target: {fileID: 2667766261549058277, guid: 81a9a74ae640de24180d5a33ddf324b1,
+        type: 3}
+      propertyPath: parentObject
+      value: 
+      objectReference: {fileID: 327974615}
+    - target: {fileID: 2667766261549058277, guid: 81a9a74ae640de24180d5a33ddf324b1,
+        type: 3}
+      propertyPath: zBoundary
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667766261549058277, guid: 81a9a74ae640de24180d5a33ddf324b1,
+        type: 3}
+      propertyPath: deactivationTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3338555832575043038, guid: 81a9a74ae640de24180d5a33ddf324b1,
         type: 3}
@@ -783,6 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformEnemiesParent: {fileID: 313276733}
+  parentBulletsEnemy: {fileID: 2074606412}
   enemyInfo:
   - typeEnemy: 0
     enemyPrefab: {fileID: -6311096128821529143, guid: c6a5e72e83c069a4686d95a2bea031e2,
@@ -1149,6 +1205,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &2074606411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2074606412}
+  m_Layer: 0
+  m_Name: ParentBulletsEnemyDron
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2074606412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074606411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2106592299
 GameObject:
   m_ObjectHideFlags: 0

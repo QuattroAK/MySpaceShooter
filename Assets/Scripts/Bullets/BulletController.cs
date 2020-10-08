@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
 
 public class BulletController : MonoBehaviour
 {
@@ -17,9 +18,9 @@ public class BulletController : MonoBehaviour
         damage = baseDamage;
     }
 
-    public void StartToMove(Transform spawnTransform)
+    public void StartToMove(Transform spawnTransform, Transform parentObject)
     {
-        transform.parent = spawnTransform;
+        transform.parent = parentObject;
         transform.position = spawnTransform.position;
         transform.rotation = spawnTransform.rotation;
 
@@ -28,12 +29,15 @@ public class BulletController : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void CheckPosition(float zBoundary)
+    public float LifeCheck(float timeLife, float deactivationTime)
     {
-        if (transform.position.z > zBoundary)
+        if (timeLife > deactivationTime)
         {
             Disable();
+            timeLife = 0;
+            return timeLife;
         }
+        
     }
 
     private void Disable()

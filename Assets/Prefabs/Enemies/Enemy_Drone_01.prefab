@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  takeDamageAudio: 3
+  takeDamageAudio: 5
   deathAudio: 3
 --- !u!114 &3317742048256856245
 MonoBehaviour:
@@ -244,7 +244,7 @@ MonoBehaviour:
   - {fileID: 8653140501281347149}
   - {fileID: 534975226405683942}
   countPoolObjects: 10
-  zBoundary: 140
+  zBoundary: 5
   tagDamagedObject: Player
 --- !u!82 &4541779310718860886
 AudioSource:

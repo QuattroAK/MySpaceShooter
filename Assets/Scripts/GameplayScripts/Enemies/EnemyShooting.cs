@@ -10,10 +10,12 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private float baseDamage;
 
+    private Transform parentBulletObject;
     private bool stopFire;
 
-    public void Init()
+    public void Init(Transform parentBulletObject)
     {
+        this.parentBulletObject = parentBulletObject;
         bulletsController.Init(baseDamage);
     }
 
@@ -30,7 +32,7 @@ public class EnemyShooting : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             SoundController.Instance.PlayAudio(TypeAudio.EnemyGunShot);
-            bulletsController.SpawnBullet();
+            bulletsController.SpawnBullet(parentBulletObject);
         }
     }
     public void DisableEffects()

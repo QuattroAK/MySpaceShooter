@@ -41,6 +41,7 @@ public enum TypeAudio
     PlayerGunShot,
     EnemyGunShot,
     PlayerDeath,
+    EnemyDeath,
     PlayerTakeDamage,
     EnemyTakeDamage
 }
