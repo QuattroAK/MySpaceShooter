@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7400132768019642141
 Transform:
   m_ObjectHideFlags: 0
@@ -4771,7 +4771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7400513752814789859
 Transform:
   m_ObjectHideFlags: 0
@@ -9626,7 +9626,6 @@ GameObject:
   - component: {fileID: 7398632346530646177}
   - component: {fileID: 7235003089926943149}
   - component: {fileID: 7213773484482078631}
-  - component: {fileID: 7370968961132711473}
   - component: {fileID: 7377266096110611211}
   - component: {fileID: -8205995480783388747}
   - component: {fileID: 93302066385662112}
@@ -14462,19 +14461,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!65 &7370968961132711473
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7396931254270941859}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7377266096110611211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14535,7 +14521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7398513142175477093
 Transform:
   m_ObjectHideFlags: 0
@@ -19373,7 +19359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7398388255932220939
 Transform:
   m_ObjectHideFlags: 0

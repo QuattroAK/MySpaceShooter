@@ -9,6 +9,8 @@ public class EnemiesManager : MonoBehaviour
 
     [SerializeField] private Transform transformEnemiesParent;
     [SerializeField] private Transform parentBulletsEnemy;
+    [SerializeField] private Transform targetPatrol;
+    [SerializeField] private Transform targetAsteroid;
     [SerializeField] private List<EnemyInfo> enemyInfo;
     [SerializeField] private int EnemyCount;
     [SerializeField] private float startSpawnTime;
@@ -49,7 +51,7 @@ public class EnemiesManager : MonoBehaviour
             {
                 EnemyController enemyController = Instantiate(enemyInfo[i].enemyPrefab, enemyInfo[i].spawnPoint.position, enemyInfo[i].enemyPrefab.transform.rotation, transformEnemiesParent);
                 enemyController.gameObject.SetActive(false);
-                enemyController.Init(playerController, OnEnemyDieHandler, parentBulletsEnemy);
+                enemyController.Init(playerController, OnEnemyDieHandler, parentBulletsEnemy, targetPatrol, targetAsteroid);
                 enemyByType.enemyControllers.Add(enemyController);
             }
             enemyByTypes.Add(enemyByType);
@@ -73,7 +75,7 @@ public class EnemiesManager : MonoBehaviour
 
             EnemyController enemyController = Instantiate(enemyInfo[i].enemyPrefab, enemyInfo[i].spawnPoint.position, enemyInfo[i].enemyPrefab.transform.rotation, transformEnemiesParent);
             enemyController.gameObject.SetActive(false);
-            enemyController.Init(playerController, OnEnemyDieHandler, parentBulletsEnemy);
+            enemyController.Init(playerController, OnEnemyDieHandler, parentBulletsEnemy, targetPatrol, targetAsteroid);
             enemyByTypes[i].enemyControllers.Add(enemyController);
             return enemyController;
         }
@@ -95,7 +97,6 @@ public class EnemiesManager : MonoBehaviour
                     retrievedEnemy.gameObject.SetActive(true);
                     EnemyCount++;
                 }
-
                 yield return new WaitForSeconds(spawnDelay);
             }
         }

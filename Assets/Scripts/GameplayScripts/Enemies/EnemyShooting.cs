@@ -21,12 +21,11 @@ public class EnemyShooting : MonoBehaviour
 
     public void Refresh()
     {
-        Attack();
         bulletsController.RefreshBullets();
     }
 
     // TODO Скорее всего придется переделать логику стрельбы, чтобы было более реалистично. Например стрелять в игрока тогда, когда враг направлен на него лицом
-    private void Attack()
+    public void Attack()
     {
         if (Time.time > nextFire && !stopFire)
         {
