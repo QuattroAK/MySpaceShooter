@@ -22,13 +22,12 @@ public class PlayerShooting : MonoBehaviour
 
     public void Refresh()
     {
-        Fire();
         bulletsController.RefreshBullets();
     }
 
-    private void Fire()
+    public void Fire()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire && !stopFire)
+        if (Time.time > nextFire && !stopFire)
         {
             nextFire = Time.time + fireRate;
             SoundController.Instance.PlayAudio(TypeAudio.PlayerGunShot);
