@@ -52,6 +52,7 @@ public abstract class ObjectHealth : MonoBehaviour
 
     public virtual void TakeDamage(float amount)
     {
+        if (isDead) return;
         currentHealth -= amount;
         SoundController.Instance.PlayAudio(takeDamageAudio);
 
@@ -65,5 +66,7 @@ public abstract class ObjectHealth : MonoBehaviour
     {
         isDead = true;
         SoundController.Instance.PlayAudio(deathAudio);
+        gameObject.SetActive(false);
+
     }
 }

@@ -11,9 +11,8 @@ public class PlayerHealth : ObjectHealth
     {
         base.InitObjectHealth();
         this.playerShooting = playerShooting;
-
         this.OnGameOver += OnGameOver;
-        /* какие-то аргументы */
+        this.OnDamage += OnDamage;
     }
 
     protected override void Death()

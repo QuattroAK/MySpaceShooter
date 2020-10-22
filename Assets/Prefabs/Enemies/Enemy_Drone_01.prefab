@@ -218,6 +218,7 @@ MonoBehaviour:
   startingHealth: 100
   takeDamageAudio: 5
   deathAudio: 3
+  scoreValue: 20
 --- !u!114 &3317742048256856245
 MonoBehaviour:
   m_ObjectHideFlags: 0

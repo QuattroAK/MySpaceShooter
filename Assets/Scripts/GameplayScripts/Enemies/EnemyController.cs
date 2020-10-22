@@ -10,8 +10,8 @@ public class EnemyController : MonoBehaviour
     public void Init(PlayerController playerController, Action<int> OnEnemyDie, Transform parentBullet, Transform targetPatrol, Transform targetAsteroid)
     {
         enemyMovement.Init(playerController.transform, targetPatrol, targetAsteroid, enemyShooting);
-        enemyHealth.Init(enemyShooting);
-        enemyShooting.Init(parentBullet);
+        enemyHealth.Init(enemyShooting, OnEnemyDie);
+        enemyShooting.Init(parentBullet, enemyHealth);
     }
 
     public void Refresh()
