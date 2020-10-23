@@ -2,7 +2,10 @@
 
 public abstract class ObjectHealth : MonoBehaviour
 {
+    [Header("Health settings")]
     [SerializeField] private int startingHealth = 100;
+
+    [Header("Audio parameters")]
     [SerializeField] private TypeAudio takeDamageAudio;
     [SerializeField] private TypeAudio deathAudio;
 

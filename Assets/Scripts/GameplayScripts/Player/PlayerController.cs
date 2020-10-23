@@ -3,12 +3,13 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public event Action OnDamage;
-    public event Action OnGameOver;
-
+    [Header("Components links")]
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerShooting playerShooting;
     [SerializeField] private PlayerHealth playerHealth;
+
+    public event Action OnGameOver;
+    public event Action OnDamage;
 
     #region Properties
 

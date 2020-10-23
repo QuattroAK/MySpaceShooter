@@ -1,5 +1,4 @@
-﻿using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private Joystick joystick;
 
-    [Header("Movement parametres")]
+    [Header("Movement parameters")]
     [SerializeField] private float startSpeed;
     [SerializeField] private float speed;
     [SerializeField] private float rotateSpeed;
@@ -56,5 +55,4 @@ public class PlayerMovement : MonoBehaviour
         speed = startSpeed;
         rotateSpeed /= 2;
     }
-
 }

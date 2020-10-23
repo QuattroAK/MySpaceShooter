@@ -2,10 +2,10 @@
 
 public class PlayerHealth : ObjectHealth
 {
-    public event Action OnDamage;
-    public event Action OnGameOver;
-
     private PlayerShooting playerShooting;
+
+    public event Action OnGameOver;
+    public event Action OnDamage;
 
     public void Init(PlayerShooting playerShooting, Action OnDamage, Action OnGameOver)
     {

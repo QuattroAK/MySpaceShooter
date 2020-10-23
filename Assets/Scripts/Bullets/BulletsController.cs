@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class BulletsController : MonoBehaviour
 {
+    [Header("Bullet parameters")]
     [SerializeField] private BulletController shotPrefab;
     [SerializeField] private Transform[] shotSpawn;
-    [SerializeField] private int countPoolObjects;
-    [SerializeField] private float zBoundary;
     [SerializeField] private string tagDamagedObject;
     [SerializeField] private float deactivationTime;
+    [SerializeField] private int countPoolObjects;
 
     private List<BulletController> activePoolShots;
     private Stack<BulletController> diactivePoolShots;
@@ -58,7 +58,6 @@ public class BulletsController : MonoBehaviour
             bullet = Instantiate(shotPrefab, shotSpawn[0]);
             activePoolShots.Add(bullet);
         }
-        
         return bullet;
     }
 

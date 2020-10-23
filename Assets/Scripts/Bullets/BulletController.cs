@@ -3,15 +3,16 @@ using System;
 
 public class BulletController : MonoBehaviour
 {
-    public event Action<BulletController> OnDisabled;
-    
+    [Header("Components links")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
 
     private string tagDamagedObject;
-    private float damage;
     private float deactivationTime;
     private float localTime;
+    private float damage;
+
+    public event Action<BulletController> OnDisabled;
 
     public void Init(string tagDamagedObject, float baseDamage, float deactivationTime)
     {

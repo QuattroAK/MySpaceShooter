@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 6954183}
   - component: {fileID: 6954182}
   - component: {fileID: 6954181}
+  - component: {fileID: 6954184}
   m_Layer: 5
   m_Name: Tap Area
   m_TagString: Untagged
@@ -202,7 +203,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6954182}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6954184}
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6954182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +252,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6954179}
   m_CullTransparentMesh: 0
+--- !u!114 &6954184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7008d363e3cce024ba742c5d63fe4f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &34589665
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +336,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &34589668
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -501,7 +525,7 @@ GameObject:
   - component: {fileID: 101556875}
   - component: {fileID: 101556874}
   m_Layer: 5
-  m_Name: GameVictory
+  m_Name: GameVictoryPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,6 +782,8 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: fc698d421757cc14da009baa5d46a970, type: 3}
   - TypeAudio: 5
     AudioClip: {fileID: 8300000, guid: 9fc03a91b5216b74394a6166059d68f2, type: 3}
+  - TypeAudio: 6
+    AudioClip: {fileID: 8300000, guid: f4bd670267f90b14ab367437afe339df, type: 3}
 --- !u!4 &190306278
 Transform:
   m_ObjectHideFlags: 0
@@ -937,6 +963,8 @@ GameObject:
   - component: {fileID: 220278488}
   - component: {fileID: 220278487}
   - component: {fileID: 220278490}
+  - component: {fileID: 220278491}
+  - component: {fileID: 220278492}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -1008,9 +1036,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1469193899}
-        m_MethodName: Resume
+      - m_Target: {fileID: 220278492}
+        m_MethodName: ResumeGame
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 860218817}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1076,6 +1115,30 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &220278491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220278485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07f7095cc2427c4d857cdda65003978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &220278492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220278485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b446d23bb6eee448b582830d8bedbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &253313766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,7 +1797,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300008, guid: 0cf9ad425bac04349a2c2dbeb480b487, type: 3}
+  m_Sprite: {fileID: 21300010, guid: 0cf9ad425bac04349a2c2dbeb480b487, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2152,9 +2215,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 2124209425}
   soundController: {fileID: 190306277}
-  uIController: {fileID: 1469193899}
   enemiesManager: {fileID: 1790001959}
+  uIController: {fileID: 1469193899}
   playerParentBulletObject: {fileID: 327974615}
+  gameVictory: {fileID: 101556874}
+  gameOver: {fileID: 1939748438}
+  rewards: {fileID: 599465247}
 --- !u!4 &547050641
 Transform:
   m_ObjectHideFlags: 0
@@ -2600,6 +2666,7 @@ GameObject:
   - component: {fileID: 623450322}
   - component: {fileID: 623450321}
   - component: {fileID: 623450320}
+  - component: {fileID: 623450323}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2669,7 +2736,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 623450321}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 623450323}
+        m_MethodName: AcceptButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 101556872}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &623450321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2707,6 +2796,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623450318}
   m_CullTransparentMesh: 0
+--- !u!114 &623450323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623450318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbd7db017946ff4c8365104dea47a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &651263390
 GameObject:
   m_ObjectHideFlags: 0
@@ -3420,8 +3521,9 @@ GameObject:
   - component: {fileID: 860218818}
   - component: {fileID: 860218820}
   - component: {fileID: 860218819}
+  - component: {fileID: 860218821}
   m_Layer: 5
-  m_Name: Pause
+  m_Name: PausePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3485,6 +3587,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860218817}
   m_CullTransparentMesh: 0
+--- !u!114 &860218821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860218817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4010217dfa4841f46b448ec3c7da5437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &884394859
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,8 +4709,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1735887642}
   healthBar: {fileID: 2106305905}
-  gameOver: {fileID: 1939748438}
-  pauseMenu: {fileID: 860218819}
 --- !u!4 &1469193900
 Transform:
   m_ObjectHideFlags: 0
@@ -4623,6 +4735,7 @@ GameObject:
   - component: {fileID: 1479121104}
   - component: {fileID: 1479121103}
   - component: {fileID: 1479121102}
+  - component: {fileID: 1479121105}
   m_Layer: 5
   m_Name: Pause Button
   m_TagString: Untagged
@@ -4694,8 +4807,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1469193899}
-        m_MethodName: Pausee
+      - m_Target: {fileID: 860218821}
+        m_MethodName: PauseButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4742,6 +4855,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479121100}
   m_CullTransparentMesh: 0
+--- !u!114 &1479121105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479121100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4010217dfa4841f46b448ec3c7da5437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1549411190
 GameObject:
   m_ObjectHideFlags: 0
@@ -5628,9 +5753,9 @@ MonoBehaviour:
       type: 3}
     spawnPoint: {fileID: 468531863}
     poolCount: 10
-  EnemyCount: 0
   startSpawnTime: 3
   spawnDelay: 3
+  enemyCount: 0
 --- !u!4 &1790001960
 Transform:
   m_ObjectHideFlags: 0
@@ -6213,7 +6338,7 @@ GameObject:
   - component: {fileID: 1939748439}
   - component: {fileID: 1939748438}
   m_Layer: 5
-  m_Name: Game Over
+  m_Name: GameOverPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6434,7 +6559,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1970293858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 547050640}
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1970293858
 MonoBehaviour:
   m_ObjectHideFlags: 0

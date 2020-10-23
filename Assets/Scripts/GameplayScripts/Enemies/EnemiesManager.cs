@@ -5,19 +5,33 @@ using System;
 
 public class EnemiesManager : MonoBehaviour
 {
-    public event Action<int> OnEnemyDie;
-
+    [Header("Tramsform settings")]
     [SerializeField] private Transform transformEnemiesParent;
     [SerializeField] private Transform parentBulletsEnemy;
     [SerializeField] private Transform targetPatrol;
     [SerializeField] private Transform targetAsteroid;
+
+    [Header("Enemy settings")]
     [SerializeField] private List<EnemyInfo> enemyInfo;
-    [SerializeField] private int EnemyCount;
+
+    [Header("Other settings")]
     [SerializeField] private float startSpawnTime;
     [SerializeField] private float spawnDelay;
+    [SerializeField] private int enemyCount;
 
     private List<EnemyByType> enemyByTypes;
     private PlayerController playerController;
+
+    public event Action<int> OnEnemyDie;
+    public event Action Victory;
+
+    public int EnemyCount
+    {
+        get
+        {
+           return enemyCount;
+        }
+    }
 
     public void Init(PlayerController playerController)
     {
@@ -86,7 +100,7 @@ public class EnemiesManager : MonoBehaviour
     {
         yield return new WaitForSeconds(startSpawnTime);
 
-        while (playerController.IsAlive && EnemyCount < 2)
+        while (playerController.IsAlive && enemyCount < 2)
         {
             for (int i = 0; i < enemyInfo.Count; i++)
             {
@@ -95,16 +109,26 @@ public class EnemiesManager : MonoBehaviour
                 {
                     retrievedEnemy.transform.position = enemyInfo[i].spawnPoint.position;
                     retrievedEnemy.gameObject.SetActive(true);
-                    EnemyCount++;
+                    enemyCount++;
                 }
                 yield return new WaitForSeconds(spawnDelay);
             }
         }
     }
 
-    public void OnEnemyDieHandler(int score)
+    public void OnEnemyDieHandler(int score, int count)
     {
         OnEnemyDie?.Invoke(score);
+        enemyCount -= count;
+        CheckEnemyCount();
+    }
+
+    public void CheckEnemyCount()
+    {
+        if (EnemyCount <= 0)
+        {
+            Victory?.Invoke();
+        }
     }
 }
 

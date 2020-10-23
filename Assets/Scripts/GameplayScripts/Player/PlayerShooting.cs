@@ -6,7 +6,7 @@ public class PlayerShooting : MonoBehaviour
     [Header("Components links")]
     [SerializeField] private BulletsController bulletsController;
 
-    [Header("Shooting parametres")]
+    [Header("Shooting parameters")]
     [SerializeField] private float nextFire;
     [SerializeField] private float fireRate;
     [SerializeField] private float baseDamage;

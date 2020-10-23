@@ -6,6 +6,7 @@ public class SoundController : MonoBehaviour
 {
     private static SoundController instance;
 
+    [Header("Audio settings")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private List<AudioItem> audioItems;
 
@@ -31,7 +32,6 @@ public class SoundController : MonoBehaviour
                 audioSource.clip = audioItem.AudioClip;
             }
         }
-
         audioSource.Play();
     }
 }
@@ -43,7 +43,8 @@ public enum TypeAudio
     PlayerDeath,
     EnemyDeath,
     PlayerTakeDamage,
-    EnemyTakeDamage
+    EnemyTakeDamage,
+    Victory
 }
 
 [Serializable]

@@ -3,29 +3,26 @@ using System;
 
 public class EnemyHealth : ObjectHealth
 {
+    [Header("Points parameters")]
     [SerializeField] private int scoreValue;
 
     private EnemyShooting enemyShooting;
-    private Action<int> OnEnemyDie;
+    private int countEnemy = 1;
 
-   public void Init(EnemyShooting enemyShooting, Action<int> OnEnemyDie)
-   {
+    private Action<int, int> OnEnemyDie;
+
+    public void Init(EnemyShooting enemyShooting, Action<int, int> OnEnemyDie)
+    {
         this.OnEnemyDie += OnEnemyDie;
         this.enemyShooting = enemyShooting;
         base.InitObjectHealth();
-   }
-
-    public void Refresh()
-    {
-
     }
 
     protected override void Death()
     {
         base.Death();
         enemyShooting.DisableEffects();
-        OnEnemyDie?.Invoke(scoreValue);
-        
+        OnEnemyDie?.Invoke(scoreValue, countEnemy);
     }
 
     public override void TakeDamage(float amount)
